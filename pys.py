@@ -1,6 +1,7 @@
 import pyexe
 import pyico
 import pylink
+import pystart_computer
 from _improtpy import *
 
 
@@ -41,32 +42,10 @@ def test():
         ("所有文件", ".*"),
     ))
     _makeButton(root, "创建exe可执行文件", pyexe.make, (("python文件", ".py"), ("所有文件", ".*")))
-    _makeButton(
-        root,
-        "创建qrcPyQt图片文件",
-        lambda file: pyqrc.make(
-            file,
-            "/",
-            *askopenfilenames(
-                filetypes=(
-                    (
-                        "图片文件", (
-                            ".png",
-                            ".jpg",
-                            ".jpeg",
-                            ".emf",
-                        ),
-                    ),
-                    ("所有文件", ".*"),
-                ),
-            ),
-        ) if file else None,
-        (
-            ("PyQt5图片文件", ".qrc"),
-            ("所有文件", ".*"),
-        ),
-        ask=asksaveasfilename,
-    )
+    _makeButton(root, "创建启动", pystart_computer.make, (
+        ("可执行文件", (".exe", ".bat", ".vbs", ".dll")),
+        ("所有文件", ".*")
+    ))
     root.mainloop()
 
 

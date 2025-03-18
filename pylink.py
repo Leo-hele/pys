@@ -5,8 +5,7 @@ def make(file, show=True):
     if not file:
         return
     source = file.replace("/", "\\")
-    save_path = os.path.join(r"C:\Users\%s\Desktop" % getpass.getuser(
-        ), os.path.split(file)[1]).replace('/', '\\')
+    save_path = os.path.join(desktop, os.path.split(source)[-1])
 
     shell = Dispatch("WScript.Shell")
 

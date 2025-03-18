@@ -23,5 +23,7 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter.messagebox import showinfo, askyesno
 import tkinter as tk
 import getpass
-from win32com import Dispatch
+from win32com.client import Dispatch
+from pyms import file
+desktop = file.userfile + r"\Desktop"
 
